@@ -64,6 +64,22 @@
       color: var(--fg);
       font-weight: 500;
       transition: var(--transition);
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     nav a:hover {
@@ -89,7 +105,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 5rem 5%;
+      padding:  5rem 5%;
       gap: 2rem;
       flex-wrap: wrap;
     }
@@ -178,6 +194,22 @@
       color: var(--accent);
       text-decoration: none;
       font-size: 1.1rem;
+      position: relative;
+    }
+
+    .project-card a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .project-card a:hover::after {
+      width: 100%;
     }
 
     .project-card a:hover {
@@ -203,13 +235,24 @@
 
     .contact-icons a:hover {
       color: var(--accent);
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.1);
     }
 
     h2 {
       font-size: 2.5rem;
       margin-bottom: 2rem;
       text-align: center;
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 768px) {
@@ -246,37 +289,37 @@
   </header>
 
   <section id="home" class="hero">
-    <div class="hero-text">
+    <div class="hero-text animate-on-scroll">
       <h1>Welcome to my portfolio</h1>
       <p>Editing long and short videos with everything in between.</p>
     </div>
-    <div class="hero-img">
-    <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/logologo.webp" alt="Deep Pathak Profile" />
+    <div class="hero-img animate-on-scroll">
+      <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/logologo.webp" alt="Deep Pathak Profile" />
     </div>
   </section>
 
   <section id="about" class="about">
-    <div class="about-img">
-  <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/deeppathak.jpeg" alt="About Deep Pathak" />
+    <div class="about-img animate-on-scroll">
+      <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/deeppathak.jpeg" alt="About Deep Pathak" />
     </div>
-    <div class="about-text">
+    <div class="about-text animate-on-scroll">
       <h2>About Me</h2>
       <p>Hi, I’m Deep Pathak—a video editor passionate about crafting engaging stories through motion. I specialize in both long-form documentaries and quick, dynamic social clips.</p>
     </div>
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
+    <h2 class="animate-on-scroll">Skills</h2>
     <div class="skills-grid">
-      <div class="skill-card">
+      <div class="skill-card animate-on-scroll">
         <h3>Video Editing</h3>
         <p>Expert in Adobe Premiere Pro and Final Cut Pro for narrative-driven edits.</p>
       </div>
-      <div class="skill-card">
+      <div class="skill-card animate-on-scroll">
         <h3>Motion Graphics</h3>
         <p>Creating dynamic titles and lower thirds in After Effects.</p>
       </div>
-      <div class="skill-card">
+      <div class="skill-card animate-on-scroll">
         <h3>Color Grading</h3>
         <p>Stylized color correction using DaVinci Resolve.</p>
       </div>
@@ -284,17 +327,17 @@
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
+    <h2 class="animate-on-scroll">Projects</h2>
     <div class="projects-grid">
-      <div class="project-card">
+      <div class="project-card animate-on-scroll">
         <a href="https://www.youtube.com" target="_blank">Documentary Highlight Reel</a>
         <p>A curated reel showcasing powerful documentary moments.</p>
       </div>
-      <div class="project-card">
+      <div class="project-card animate-on-scroll">
         <a href="https://www.youtube.com" target="_blank">Social Media Promo</a>
         <p>Fast-paced edits tailored for Instagram and YouTube Shorts.</p>
       </div>
-      <div class="project-card">
+      <div class="project-card animate-on-scroll">
         <a href="https://www.youtube.com" target="_blank">Wedding Ceremony Edit</a>
         <p>Elegant wedding visuals with music syncing and transitions.</p>
       </div>
@@ -302,8 +345,8 @@
   </section>
 
   <section id="contact" class="contact">
-    <h2>Get in Touch</h2>
-    <div class="contact-icons">
+    <h2 class="animate-on-scroll">Get in Touch</h2>
+    <div class="contact-icons animate-on-scroll">
       <a href="mailto:example@email.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -317,8 +360,20 @@
     toggleButton.addEventListener('click', () => {
       const currentTheme = body.getAttribute('data-theme');
       body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-      toggleButton.innerHTML = <i class="fas fa-${currentTheme === 'dark' ? 'moon' : 'sun'}"></i>;
+      toggleButton.innerHTML = `<i class="fas fa-${currentTheme === 'dark' ? 'sun' : 'moon'}"></i>`;
     });
+
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
