@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Editing & 2D Animation Portfolio</title>
+  <style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --card-bg: white;
+      --button-bg: rgba(0, 0, 0, 0.5);
+      --button-hover: rgba(0, 0, 0, 0.8);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #f1f1f1;
+      --card-bg: #1e1e1e;
+      --button-bg: rgba(255, 255, 255, 0.2);
+      --button-hover: rgba(255, 255, 255, 0.4);
+    }
+
+    @keyframes fadeInSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      padding: 0 1rem;
+      animation: fadeInSlide 1s ease-out;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: white;
+      transition: transform 0.3s;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(20deg);
+    }
+
+    .profile-section {
+      text-align: center;
+      margin-top: -1rem;
+      padding: 0 1rem 3rem 1rem;
+    }
+
+    .profile-img {
+      width: 200px;
+      height: 250px;
+      border-radius: 50% / 60%;
+      object-fit: cover;
+      object-position: center;
+      border: 6px solid white;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      display: block;
+      margin: 3rem auto 2rem auto;
+    }
+
+    .profile-info {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .profile-info p {
+      font-size: 1.1rem;
+    }
+
+    .social-links {
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #0077ff;
+    }
+
+    .intro {
+      max-width: 800px;
+      margin: 2rem auto;
+      text-align: center;
+      font-size: 1.1rem;
+      padding: 0 1rem;
+    }
+
+    .video-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .video-item {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .video-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .carousel-title {
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+
+    .video-embed {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-embed.portrait {
+      padding-bottom: 177.78%; /* 9:16 aspect ratio */
+    }
+
+    .video-embed iframe,
+    .video-embed video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+.krishna-fit video {
+  object-fit: contain !important;
+  background-color: black;
+}
+
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #111;
+      color: #ccc;
+    }
+
+    footer .footer-logo {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    footer p {
+      margin: 0.3rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+
+  <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+      const currentTheme = root.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      document.getElementById("theme-icon").textContent = newTheme === "dark" ? "☀️" : "🌙";
+    }
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+      document.getElementById("theme-icon").textContent = savedTheme === "dark" ? "☀️" : "🌙";
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1>My Video Editing & 2D Animation Portfolio</h1>
+    <button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button>
+  </header>
+
+  <section class="profile-section">
+    <img src="deeppathak.jpeg" alt="Profile Image" class="profile-img" />
+    <div class="profile-info">
+      <h1>Deep Pathak</h1>
+      <p>
+        Hi, I'm a creative video editor and 2D animator passionate about storytelling
+        and visual design. I work with modern tools to bring ideas to life and help brands
+        stand out through compelling motion content.
+      </p>
+      <h3>WhatsApp:</h3>
+      <h2><a href="https://wa.me/9779707200664" target="_blank">+977 9707200664</a></h2>
+      <div class="social-links">
+        <a href="https://www.instagram.com/yo_deeppathak/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@heliod7806" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://discord.gg/K8AbZMdm" target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="https://github.com/DeeppathakEdit" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <p>
+      Hello! I'm a passionate video editor and 2D animator with a strong eye for detail
+      and storytelling. I specialize in creating visually engaging videos and animations
+      that communicate clearly and captivate the audience. Below are some of my selected works.
+    </p>
+  </section>
+
+  <div class="video-gallery">
+    <div class="video-item">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/StH6mF6LARY" title="Introduction"></iframe>
+      </div>
+      <div class="carousel-title">Introduction</div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/McsMIrCQK6k" title="After Effects VFX"></iframe>
+      </div>
+      <div class="carousel-title">After Effects VFX // $8.00</div>
+    </div>
+
+   <div class="video-item">
+      <div class="video-embed">
+        <video controls>
+          <source src="Typograpgy-1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="carousel-title">typography // $7.00</div>
+    </div>
+
+
+    <div class="video-item">
+      <div class="video-embed">
+        <video controls>
+          <source src="animation.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="carousel-title">Longer Animation // $19.00</div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-embed">
+        <video controls>
+          <source src="animation-2.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="carousel-title">Simple Animation // $9.00</div>
+    </div>
+
+    <div class="video-item">
+  <div class="video-embed krishna-fit">
+    <video controls>
+      <source src="Lord Krishna.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="carousel-title">Video-Edit // $11.00</div>
+</div>
+  </div>
+
+  <h2 style="text-align:center;">View my 
+    <a href="https://www.instagram.com/yo_deeppathak/" target="_blank">
+      Instagram <i class="fab fa-instagram"></i>
+    </a> profile for more
+  </h2>
+
+  <footer>
+    <div class="footer-logo"><i class="fas fa-film"></i></div>
+    <p>&copy; 2025 Deep Pathak</p>
+    <p>Video Editing & 2D Animation | Portfolio Showcase</p>
+    <p>Crafted with creativity and passion.</p>
+  </footer>
+</body>
+</html>
