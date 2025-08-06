@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deep Pathak - Video Editor Portfolio</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- AOS (Animate On Scroll) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <style>
     :root {
       --bg: linear-gradient(-45deg, #1a1a1a, #2a2a2a, #1a1a1a, #2a2a2a);
@@ -35,11 +33,7 @@
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', 'Segoe UI', sans-serif;
@@ -54,211 +48,78 @@
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 5%;
-      position: sticky;
-      top: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.5rem 5%; position: sticky; top: 0;
+      background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px);
       z-index: 1000;
-      animation: fadeInDown 1s ease;
     }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-decoration: none;
-      color: var(--fg);
-      animation: pulse 2s infinite;
-    }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--fg); animation: pulse 2s infinite; }
 
     nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: var(--fg);
-      font-weight: 500;
-      transition: var(--transition);
+      margin-left: 1.5rem; text-decoration: none; color: var(--fg);
+      font-weight: 500; transition: var(--transition);
       position: relative;
     }
-
     nav a::after {
-      content: '';
-      display: block;
-      height: 2px;
-      width: 0;
-      background: var(--accent);
-      transition: width 0.3s;
-      position: absolute;
-      bottom: -5px;
-      left: 0;
+      content: ''; display: block; height: 2px; width: 0;
+      background: var(--accent); transition: width 0.3s;
+      position: absolute; bottom: -5px; left: 0;
     }
+    nav a:hover { color: var(--accent); }
+    nav a:hover::after { width: 100%; }
 
-    nav a:hover {
-      color: var(--accent);
+    .theme-toggle { background: none; border: none; color: var(--fg);
+      font-size: 1.5rem; cursor: pointer; transition: var(--transition);
     }
+    .theme-toggle:hover { transform: rotate(360deg) scale(1.2); color: var(--accent); }
 
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .theme-toggle {
-      margin-top: 0.5rem;
-      background: none;
-      border: none;
-      color: var(--fg);
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .theme-toggle:hover {
-      color: var(--accent);
-      transform: rotate(360deg) scale(1.2);
-    }
-
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 5rem 5%;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-text h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+    .hero, .about, .skills-grid, .projects-grid, .contact-icons a {
       opacity: 0;
-      animation: animate__animated animate__fadeInLeft animate__delay-1s forwards;
     }
 
-    .hero-text p {
-      color: #aaa;
-      max-width: 500px;
-      opacity: 0;
-      animation: animate__animated animate__fadeInLeft animate__delay-1-5s forwards;
+    .hero { display: flex; align-items: center; justify-content: space-between;
+      padding: 5rem 5%; gap: 2rem; flex-wrap: wrap;
+    }
+    .hero-text h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+    .hero-text p { color: #aaa; max-width: 500px; }
+    .hero-img { width: 200px; height: 200px; border-radius: 50%;
+      background: var(--card-bg); box-shadow: var(--shadow); overflow: hidden;
+    }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+    .about { display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+    .about-img { width: 300px; height: 300px; background: var(--card-bg);
+      box-shadow: var(--shadow); overflow: hidden;
+    }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-text { flex: 1; min-width: 300px; }
+
+    .skills-grid, .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 2rem; margin-top: 2rem;
     }
 
-    .hero-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: var(--card-bg);
+    .skill-card, .project-card {
+      background: var(--card-bg); padding: 2rem; border-radius: 10px;
+      border: 1px solid var(--border); transition: var(--transition);
       box-shadow: var(--shadow);
-      overflow: hidden;
-      opacity: 0;
-      animation: animate__animated animate__zoomIn animate__delay-2s forwards;
     }
-
-    .hero-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-
-    section {
-      padding: 5rem 5%;
-    }
-
-    .about {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .about-img {
-      width: 300px;
-      height: 300px;
-      background: var(--card-bg);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      opacity: 0;
-      animation: animate__animated animate__fadeInUp animate__delay-1s forwards;
-    }
-
-    .about-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about-text {
-      flex: 1;
-      min-width: 300px;
-      opacity: 0;
-      animation: animate__animated animate__fadeInUp animate__delay-1-5s forwards;
-    }
-
-    .skills-grid,
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .skill-card,
-    .project-card {
-      background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-      opacity: 0;
-    }
-
-    .skill-card:hover,
-    .project-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-10px) rotateZ(-1deg);
+    .skill-card:hover, .project-card:hover {
+      border-color: var(--accent); transform: translateY(-10px) rotateZ(-1deg);
       box-shadow: 0 8px 16px rgba(0,0,0,0.5);
     }
+    .project-card a { color: var(--accent); text-decoration: none; font-size: 1.1rem; }
+    .project-card a:hover { text-decoration: underline; }
 
-    .project-card a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
+    .contact { text-align: center; }
+    .contact-icons { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; }
+    .contact-icons a { color: var(--fg); font-size: 2rem; transition: var(--transition); }
+    .contact-icons a:hover { transform: translateY(-5px) rotate(10deg); color: var(--accent); }
 
-    .project-card a:hover {
-      text-decoration: underline;
-    }
+    h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
 
-    .contact {
-      text-align: center;
-    }
-
-    .contact-icons {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .contact-icons a {
-      color: var(--fg);
-      font-size: 2rem;
-      transition: var(--transition);
-      opacity: 0;
-    }
-
-    .contact-icons a:hover {
-      color: var(--accent);
-      transform: translateY(-5px) rotate(10deg);
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
       .hero-text h1 { font-size: 2rem; }
       .hero-img, .about-img { width: 150px; height: 150px; }
@@ -267,7 +128,7 @@
   </style>
 </head>
 <body data-theme="dark">
-  <header data-aos="fade-down">
+  <header>
     <a href="#" class="logo">Deep Pathak</a>
     <nav>
       <a href="#home">Home</a>
@@ -281,17 +142,17 @@
     </nav>
   </header>
 
-  <section id="home" class="hero">
+  <section id="home" class="hero" data-aos="fade-up" data-aos-duration="800">
     <div class="hero-text">
       <h1>Welcome to my portfolio</h1>
       <p>Editing long and short videos with everything in between.</p>
     </div>
-    <div class="hero-img">
+    <div class="hero-img" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
       <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/logologo.webp" alt="Deep Pathak Profile" />
     </div>
   </section>
 
-  <section id="about" class="about" data-aos="fade-up">
+  <section id="about" class="about" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
     <div class="about-img">
       <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/deeppathak.jpeg" alt="About Deep Pathak" />
     </div>
@@ -301,58 +162,55 @@
     </div>
   </section>
 
-  <section id="skills" data-aos="fade-up" data-aos-delay="200">
+  <section id="skills" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
     <h2>Skills</h2>
     <div class="skills-grid">
-      <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="skill-card" data-aos="flip-left" data-aos-duration="800" data-aos-delay="500">
         <h3>Video Editing</h3>
         <p>Expert in Adobe Premiere Pro and Final Cut Pro for narrative-driven edits.</p>
       </div>
-      <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
+      <div class="skill-card" data-aos="flip-left" data-aos-duration="800" data-aos-delay="600">
         <h3>Motion Graphics</h3>
         <p>Creating dynamic titles and lower thirds in After Effects.</p>
       </div>
-      <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
+      <div class="skill-card" data-aos="flip-left" data-aos-duration="800" data-aos-delay="700">
         <h3>Color Grading</h3>
         <p>Stylized color correction using DaVinci Resolve.</p>
       </div>
     </div>
   </section>
 
-  <section id="projects" data-aos="fade-up" data-aos-delay="400">
+  <section id="projects" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="project-card" data-aos="flip-left" data-aos-delay="500">
+      <div class="project-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="700">
         <a href="https://www.youtube.com" target="_blank">Documentary Highlight Reel</a>
         <p>A curated reel showcasing powerful documentary moments.</p>
       </div>
-      <div class="project-card" data-aos="flip-left" data-aos-delay="600">
+      <div class="project-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="800">
         <a href="https://www.youtube.com" target="_blank">Social Media Promo</a>
         <p>Fast-paced edits tailored for Instagram and YouTube Shorts.</p>
       </div>
-      <div class="project-card" data-aos="flip-left" data-aos-delay="700">
+      <div class="project-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="900">
         <a href="https://www.youtube.com" target="_blank">Wedding Ceremony Edit</a>
         <p>Elegant wedding visuals with music syncing and transitions.</p>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact" data-aos="fade-up" data-aos-delay="600">
+  <section id="contact" class="contact" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
     <h2>Get in Touch</h2>
     <div class="contact-icons">
-      <a href="mailto:example@email.com" aria-label="Email" data-aos="bounce-in" data-aos-delay="700"><i class="fas fa-envelope"></i></a>
-      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" data-aos="bounce-in" data-aos-delay="800"><i class="fab fa-linkedin"></i></a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram" data-aos="bounce-in" data-aos-delay="900"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:example@email.com" aria-label="Email" data-aos="bounce-right" data-aos-duration="800" data-aos-delay="900"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" data-aos="bounce-right" data-aos-duration="800" data-aos-delay="1000"><i class="fab fa-linkedin"></i></a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram" data-aos="bounce-right" data-aos-duration="800" data-aos-delay="1100"><i class="fab fa-instagram"></i></a>
     </div>
   </section>
 
   <!-- AOS Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    AOS.init({ duration: 1000, once: true });
 
     const toggleButton = document.querySelector('.theme-toggle');
     const body = document.body;
@@ -362,7 +220,8 @@
       const next = currentTheme === 'dark' ? 'light' : 'dark';
       body.setAttribute('data-theme', next);
       toggleButton.innerHTML = `<i class="fas fa-${currentTheme === 'dark' ? 'moon' : 'sun'}"></i>`;
-      document.documentElement.style.animation = currentTheme === 'dark' ? 'none' : 'gradientBG 15s ease infinite';
+      if(next === 'dark') document.documentElement.style.animation = 'gradientBG 15s ease infinite';
+      else document.documentElement.style.animation = 'none';
     });
   </script>
 </body>
