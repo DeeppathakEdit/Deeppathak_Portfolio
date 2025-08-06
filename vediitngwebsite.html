@@ -1,319 +1,321 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Editing & 2D Animation Portfolio</title>
+  <title>Deep Pathak - Video Editor Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-
     :root {
-      --bg-color: #f9f9f9;
-      --text-color: #333;
-      --card-bg: white;
-      --button-bg: rgba(0, 0, 0, 0.5);
-      --button-hover: rgba(0, 0, 0, 0.8);
+      --bg: #1a1a1a;
+      --fg: #e0e0e0;
+      --accent: #00aaff;
+      --card-bg: #2a2a2a;
+      --border: #444;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --transition: all 0.3s ease;
     }
 
-    [data-theme="dark"] {
-      --bg-color: #121212;
-      --text-color: #f1f1f1;
-      --card-bg: #1e1e1e;
-      --button-bg: rgba(255, 255, 255, 0.2);
-      --button-hover: rgba(255, 255, 255, 0.4);
-    }
-
-    @keyframes fadeInSlide {
-      10% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    [data-theme="light"] {
+      --bg: #f5f5f5;
+      --fg: #333;
+      --card-bg: #fff;
+      --border: #ccc;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
-      padding: 0 1rem;
-      animation: fadeInSlide 1s ease-out;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--fg);
+      transition: var(--transition);
+      scroll-behavior: smooth;
     }
 
     header {
-      background-color: #111;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--fg);
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--fg);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--accent);
     }
 
     .theme-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
       background: none;
       border: none;
-      cursor: pointer;
+      color: var(--fg);
       font-size: 1.5rem;
-      color: white;
-      transition: transform 0.3s;
+      cursor: pointer;
+      transition: var(--transition);
     }
 
     .theme-toggle:hover {
-      transform: rotate(20deg);
+      color: var(--accent);
+      transform: scale(1.1);
     }
 
-    .profile-section {
-      text-align: center;
-      margin-top: -1rem;
-      padding: 0 1rem 3rem 1rem;
-    }
-
-    .profile-img {
-      width: 200px;
-      height: 250px;
-      border-radius: 50% / 60%;
-      object-fit: cover;
-      object-position: center;
-      border: 6px solid white;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      display: block;
-      margin: 3rem auto 2rem auto;
-    }
-
-    .profile-info {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .profile-info p {
-      font-size: 1.1rem;
-    }
-
-    .social-links {
-      margin-top: 1rem;
-    }
-
-    .social-links a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      color: var(--text-color);
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-      color: #0077ff;
-    }
-
-    .intro {
-      max-width: 800px;
-      margin: 2rem auto;
-      text-align: center;
-      font-size: 1.1rem;
-      padding: 0 1rem;
-    }
-
-    .video-gallery {
+    .hero {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5rem 5%;
       gap: 2rem;
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      flex-wrap: wrap;
     }
 
-    .video-item {
-      background: var(--card-bg);
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .video-item:hover {
-      transform: translateY(-4px);
-    }
-
-    .carousel-title {
-      margin-top: 0.5rem;
-      font-weight: bold;
-    }
-
-    .video-embed {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
-      height: 0;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .video-embed.portrait {
-      padding-bottom: 177.78%; /* 9:16 aspect ratio */
-    }
-
-    .video-embed iframe,
-    .video-embed video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-.krishna-fit video {
-  object-fit: contain !important;
-  background-color: black;
-}
-
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #111;
-      color: #ccc;
-    }
-
-    footer .footer-logo {
-      font-size: 2rem;
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
       margin-bottom: 1rem;
     }
 
-    footer p {
-      margin: 0.3rem 0;
-      font-size: 0.9rem;
+    .hero-text p {
+      color: #aaa;
+      max-width: 500px;
+    }
+
+    .hero-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    section {
+      padding: 5rem 5%;
+    }
+
+    .about {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .about-img {
+      width: 300px;
+      height: 300px;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .projects-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 2rem;
+    }
+
+    .projects-list li {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .projects-list a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .projects-list a:hover {
+      text-decoration: underline;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-icons a {
+      color: var(--fg);
+      font-size: 2rem;
+      transition: var(--transition);
+    }
+
+    .contact-icons a:hover {
+      color: var(--accent);
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-img, .about-img {
+        width: 150px;
+        height: 150px;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        font-size: 1rem;
+      }
     }
   </style>
-
-  <script>
-    function toggleTheme() {
-      const root = document.documentElement;
-      const currentTheme = root.getAttribute("data-theme");
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      document.getElementById("theme-icon").textContent = newTheme === "dark" ? "☀️" : "🌙";
-    }
-
-    window.onload = () => {
-      const savedTheme = localStorage.getItem("theme") || "light";
-      document.documentElement.setAttribute("data-theme", savedTheme);
-      document.getElementById("theme-icon").textContent = savedTheme === "dark" ? "☀️" : "🌙";
-    };
-  </script>
 </head>
-<body>
+<body data-theme="dark">
   <header>
-    <h1>My Video Editing & 2D Animation Portfolio</h1>
-    <button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button>
+    <a href="#" class="logo">Deep Pathak</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
   </header>
 
-  <section class="profile-section">
-    <img src="deeppathak.jpeg" alt="Profile Image" class="profile-img" />
-    <div class="profile-info">
-      <h1>Deep Pathak</h1>
-      <p>
-        Hi, I'm a creative video editor and 2D animator passionate about storytelling
-        and visual design. I work with modern tools to bring ideas to life and help brands
-        stand out through compelling motion content.
-      </p>
-      <h3>WhatsApp:</h3>
-      <h2><a href="https://wa.me/9779707200664" target="_blank">+977 9707200664</a></h2>
-      <div class="social-links">
-        <a href="https://www.instagram.com/yo_deeppathak/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@heliod7806" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://discord.gg/K8AbZMdm" target="_blank"><i class="fab fa-discord"></i></a>
-        <a href="https://github.com/DeeppathakEdit" target="_blank"><i class="fab fa-github"></i></a>
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Welcome to my portfolio</h1>
+      <p>Editing long and short videos with everything in between.</p>
+    </div>
+    <div class="hero-img">
+      <img src="images/profile.png" onerror="this.src='https://placehold.co/200x200';" alt="Deep Pathak Profile">
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-img">
+      <img src="images/profile.png" onerror="this.src='https://placehold.co/300x300';" alt="About Deep Pathak">
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>Hi, I’m Deep Pathak—a video editor passionate about crafting engaging stories through motion. I specialize in both long-form documentaries and quick, dynamic social clips.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Video Editing</h3>
+        <p>Expert in Adobe Premiere Pro and Final Cut Pro for narrative-driven edits.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Motion Graphics</h3>
+        <p>Creating dynamic titles and lower thirds in After Effects.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Color Grading</h3>
+        <p>Stylized color correction using DaVinci Resolve.</p>
       </div>
     </div>
   </section>
 
-  <section class="intro">
-    <p>
-      Hello! I'm a passionate video editor and 2D animator with a strong eye for detail
-      and storytelling. I specialize in creating visually engaging videos and animations
-      that communicate clearly and captivate the audience. Below are some of my selected works.
-    </p>
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul class="projects-list">
+      <li><a href="https://www.youtube.com" target="_blank">Documentary Highlight Reel</a></li>
+      <li><a href="https://www.youtube.com" target="_blank">Social Media Promo</a></li>
+      <li><a href="https://www.youtube.com" target="_blank">Wedding Ceremony Edit</a></li>
+    </ul>
   </section>
 
-  <div class="video-gallery">
-    <div class="video-item">
-      <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/StH6mF6LARY" title="Introduction"></iframe>
-      </div>
-      <div class="carousel-title">Introduction</div>
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact-icons">
+      <a href="mailto:example@email.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
+  </section>
 
-    <div class="video-item">
-      <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/McsMIrCQK6k" title="After Effects VFX"></iframe>
-      </div>
-      <div class="carousel-title">After Effects VFX // $8.00</div>
-    </div>
+  <script>
+    const toggleButton = document.querySelector('.theme-toggle');
+    const body = document.body;
 
-   <div class="video-item">
-      <div class="video-embed">
-        <video controls>
-          <source src="Typograpgy-1.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="carousel-title">typography // $7.00</div>
-    </div>
-
-
-    <div class="video-item">
-      <div class="video-embed">
-        <video controls>
-          <source src="animation.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="carousel-title">Longer Animation // $19.00</div>
-    </div>
-
-    <div class="video-item">
-      <div class="video-embed">
-        <video controls>
-          <source src="animation-2.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="carousel-title">Simple Animation // $9.00</div>
-    </div>
-
-    <div class="video-item">
-  <div class="video-embed krishna-fit">
-    <video controls>
-      <source src="Lord Krishna.mp4" type="video/mp4" />
-    </video>
-  </div>
-  <div class="carousel-title">Video-Edit // $11.00</div>
-</div>
-  </div>
-
-  <h2 style="text-align:center;">View my 
-    <a href="https://www.instagram.com/yo_deeppathak/" target="_blank">
-      Instagram <i class="fab fa-instagram"></i>
-    </a> profile for more
-  </h2>
-
-  <footer>
-    <div class="footer-logo"><i class="fas fa-film"></i></div>
-    <p>&copy; 2025 Deep Pathak</p>
-    <p>Video Editing & 2D Animation | Portfolio Showcase</p>
-    <p>Crafted with creativity and passion.</p>
-  </footer>
+    toggleButton.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+      toggleButton.innerHTML = `<i class="fas fa-${currentTheme === 'dark' ? 'moon' : 'sun'}"></i>`;
+    });
+  </script>
 </body>
 </html>
