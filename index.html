@@ -71,6 +71,7 @@
     }
 
     .theme-toggle {
+      margin-top: 0.5rem;
       background: none;
       border: none;
       color: var(--fg);
@@ -149,14 +150,16 @@
       min-width: 300px;
     }
 
-    .skills-grid {
+    .skills-grid,
+    .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
 
-    .skill-card {
+    .skill-card,
+    .project-card {
       background: var(--card-bg);
       padding: 2rem;
       border-radius: 10px;
@@ -165,29 +168,19 @@
       box-shadow: var(--shadow);
     }
 
-    .skill-card:hover {
+    .skill-card:hover,
+    .project-card:hover {
       border-color: var(--accent);
       transform: translateY(-5px);
     }
 
-    .projects-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 2rem;
-    }
-
-    .projects-list li {
-      margin-bottom: 1rem;
-      font-size: 1.25rem;
-    }
-
-    .projects-list a {
+    .project-card a {
       color: var(--accent);
       text-decoration: none;
-      transition: var(--transition);
+      font-size: 1.1rem;
     }
 
-    .projects-list a:hover {
+    .project-card a:hover {
       text-decoration: underline;
     }
 
@@ -224,7 +217,8 @@
         font-size: 2rem;
       }
 
-      .hero-img, .about-img {
+      .hero-img,
+      .about-img {
         width: 150px;
         height: 150px;
       }
@@ -257,13 +251,13 @@
       <p>Editing long and short videos with everything in between.</p>
     </div>
     <div class="hero-img">
-      <img src="https://github.com/DeeppathakEdit/Deeppathak_Portfolio/blob/main/images/deeppathak.jpeg" ;" alt="Deep Pathak Profile">
+      <img src="https://github.com/DeeppathakEdit/Deeppathak_Portfolio/blob/main/images/logologo.webp" ;" alt="Deep Pathak Profile">
     </div>
   </section>
 
   <section id="about" class="about">
     <div class="about-img">
-      <img src="https://github.com/DeeppathakEdit/Deeppathak_Portfolio/blob/main/images/deeppathak.jpeg" ;" alt="About Deep Pathak">
+      <img src="https://github.com/DeeppathakEdit/Deeppathak_Portfolio/blob/main/images/deeppathak.jpeg";" alt="About Deep Pathak">
     </div>
     <div class="about-text">
       <h2>About Me</h2>
@@ -291,11 +285,20 @@
 
   <section id="projects">
     <h2>Projects</h2>
-    <ul class="projects-list">
-      <li><a href="https://www.youtube.com" target="_blank">Documentary Highlight Reel</a></li>
-      <li><a href="https://www.youtube.com" target="_blank">Social Media Promo</a></li>
-      <li><a href="https://www.youtube.com" target="_blank">Wedding Ceremony Edit</a></li>
-    </ul>
+    <div class="projects-grid">
+      <div class="project-card">
+        <a href="https://www.youtube.com" target="_blank">Documentary Highlight Reel</a>
+        <p>A curated reel showcasing powerful documentary moments.</p>
+      </div>
+      <div class="project-card">
+        <a href="https://www.youtube.com" target="_blank">Social Media Promo</a>
+        <p>Fast-paced edits tailored for Instagram and YouTube Shorts.</p>
+      </div>
+      <div class="project-card">
+        <a href="https://www.youtube.com" target="_blank">Wedding Ceremony Edit</a>
+        <p>Elegant wedding visuals with music syncing and transitions.</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact" class="contact">
