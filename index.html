@@ -120,6 +120,56 @@
       color: #aaa;
       max-width: 500px;
     }
+#videos {
+  padding: 5rem 5% 2rem;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.video-wrapper {
+  flex: 1 1 300px;
+  max-width: 320px;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease, z-index 0.3s;
+}
+
+.video-wrapper:nth-child(odd) {
+  transform: rotate(1deg);
+}
+
+.video-wrapper:hover {
+  transform: scale(1.03) rotate(0deg);
+  z-index: 10;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  pointer-events: auto;
+}
+.video-wrapper {
+  flex: 1 1 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
 
     .hero-img {
       width: 200px;
@@ -313,15 +363,15 @@
     <div class="skills-grid">
       <div class="skill-card animate-on-scroll">
         <h3>Video Editing</h3>
-        <p>Expert in Adobe Premiere Pro and Final Cut Pro for narrative-driven edits.</p>
+        <p>Expert in Editng with Adobe Tools.<br>Costs:$5-8</p>
       </div>
       <div class="skill-card animate-on-scroll">
         <h3>Motion Graphics</h3>
-        <p>Creating dynamic titles and lower thirds in After Effects.</p>
+        <p>Creating dynamic titles and lower thirds in After Effects.<br>Costs:$7-12</p>
       </div>
       <div class="skill-card animate-on-scroll">
-        <h3>Color Grading</h3>
-        <p>Stylized color correction using DaVinci Resolve.</p>
+        <h3>2D Animation</h3>
+        <p>High Quality 2D Animation in Krita Software.$9-19.99</p>
       </div>
     </div>
   </section>
@@ -330,26 +380,50 @@
     <h2 class="animate-on-scroll">Projects</h2>
     <div class="projects-grid">
       <div class="project-card animate-on-scroll">
-        <a href="https://www.youtube.com" target="_blank">Documentary Highlight Reel</a>
-        <p>A curated reel showcasing powerful documentary moments.</p>
+        <a href="https://www.instagram.com/yo_deeppathak/" target="_blank">Instagram Account</a>
+        <p>A curated reel showcasing more edits and animations.</p>
       </div>
       <div class="project-card animate-on-scroll">
-        <a href="https://www.youtube.com" target="_blank">Social Media Promo</a>
+        <a href="https://www.youtube.com/@heliod7806" target="_blank">Youtube Account</a>
         <p>Fast-paced edits tailored for Instagram and YouTube Shorts.</p>
       </div>
       <div class="project-card animate-on-scroll">
-        <a href="https://www.youtube.com" target="_blank">Wedding Ceremony Edit</a>
-        <p>Elegant wedding visuals with music syncing and transitions.</p>
+        <a href="https://discord.gg/K8AbZMdm" target="_blank">Discord Server</a>
+        <p>Join the discord to get in touch.</p>
       </div>
     </div>
   </section>
 
+  <section id="videos">
+  <h2 class="animate-on-scroll">My Work</h2>
+  <div class="video-grid animate-on-scroll">
+    <!-- Video 1 -->
+    <div class="video-wrapper" style="z-index: 6;">
+     <iframe src="https://drive.google.com/file/d/1W6OeaJPkHRZS4RoKhRJmjjL1W4HPujui/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
+    <!-- Video 2 -->
+    <div class="video-wrapper" style="z-index: 5;">
+      <iframe src="https://drive.google.com/file/d/1E9Yuf_GNaNLaHo3NnI-8Pw69pvQb61rY/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
+    <!-- Video 3 -->
+    <div class="video-wrapper" style="z-index: 4;">
+     <iframe src="https://drive.google.com/file/d/1r6ROV4iI1D8V1JNFeGj_nHzvXmNpVh1z/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
+    <!-- Video 4 -->
+    <div class="video-wrapper" style="z-index: 3;">
+     <iframe src="https://drive.google.com/file/d/1SSMfFRVyFCD0B2vNkd2PBTmbJIiCdk3u/preview" width="640" height="480" allow="autoplay"></iframe>
+    </div>
+    </div>
+  </div>
+</section>
+
+
   <section id="contact" class="contact">
     <h2 class="animate-on-scroll">Get in Touch</h2>
     <div class="contact-icons animate-on-scroll">
-      <a href="mailto:example@email.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://mail.google.com/mail/u/0/#drafts?compose=CllgCJfpskGFpfPHTXTZkSxGCQsmLZbWPwKlrzxxlLtpppMwqMbQZcTctSJbQxwMjJBffRbCcwL" aria-label="Discord"><i class="fas fa-envelope"></i></a>
       <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/yo_deeppathak/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
   </section>
 
