@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Pathak - Video Showcase</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
     :root {
       --bg: #1a1a1a;
@@ -15,46 +16,85 @@
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       --transition: all 0.3s ease;
     }
+
     [data-theme="light"] {
       --bg: #f5f5f5;
       --fg: #333;
-      --card-bg: #fff;
-      --border: #ccc;
+      --card-bg: #ffffff;
+      --border: #cccccc;
       --shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: "Inter", sans-serif;
       background: var(--bg);
       color: var(--fg);
       transition: var(--transition);
     }
+
     header {
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 1rem 5%;
       background: var(--bg);
-      position: sticky; top: 0;
+      position: sticky;
+      top: 0;
       z-index: 1000;
     }
-    .logo { font-size: 1.5rem; font-weight: 700; color: var(--fg); text-decoration: none; }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
     nav a {
-      margin-left: 1.5rem; text-decoration: none; color: var(--fg);
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--fg);
       transition: var(--transition);
     }
-    nav a:hover { color: var(--accent); }
-    .theme-toggle {
-      background: none; border: none;
-      color: var(--fg); font-size: 1.3rem;
-      cursor: pointer; margin-left: 1rem;
+
+    nav a:hover {
+      color: var(--accent);
     }
-    h1, h2 { text-align: center; margin: 2rem 0 1rem; }
-    section { padding: 3rem 5%; }
-    .video-category { margin-bottom: 3rem; }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--fg);
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+
+    section {
+      padding: 3rem 5%;
+    }
+
+    .video-category {
+      margin-bottom: 3rem;
+    }
+
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
     }
+
     .video-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -62,194 +102,226 @@
       box-shadow: var(--shadow);
       overflow: hidden;
       transition: transform 0.3s ease, border-color 0.3s ease;
-      position: relative;
     }
+
     .video-card:hover {
       transform: translateY(-6px);
       border-color: var(--accent);
     }
-    /* Keep 16:9 ratio */
+
     .video-wrapper {
       position: relative;
       width: 100%;
       padding-top: 56.25%;
-      background: black;
+      background: #000;
     }
+
     .video-wrapper iframe {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       border: none;
       border-radius: 12px 12px 0 0;
     }
+
     .video-info {
       padding: 1rem;
-      transition: opacity 0.3s ease;
     }
-    .video-card.playing .video-info { opacity: 0.4; }
-    .video-info h3 { margin-bottom: 0.5rem; color: var(--accent); }
-    .video-info p { font-size: 0.9rem; color: #aaa; }
+
+    .video-info h3 {
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    .video-info p {
+      font-size: 0.9rem;
+      color: #aaaaaa;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 5%;
       border-top: 1px solid var(--border);
       margin-top: 3rem;
     }
+
     .back-btn {
       display: inline-block;
       margin-top: 2rem;
       padding: 0.75rem 1.5rem;
       background: var(--accent);
-      color: #fff;
+      color: #ffffff;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
       transition: var(--transition);
     }
-    .back-btn:hover { background: #0088cc; }
+
+    .back-btn:hover {
+      background: #0088cc;
+    }
   </style>
 </head>
+
 <body data-theme="dark">
-  <header>
-    <a href="index.html" class="logo">Deep Pathak</a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#intro">Introduction</a>
-      <a href="#editing">Video Editing</a>
-      <a href="#animations">Animations</a>
-      <a href="#ads">Advertisements</a>
-      <button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
-    </nav>
-  </header>
 
-  <main>
-    <h1>🎬 Video Showcase</h1>
+<header>
+  <a href="index.html" class="logo">Deep Pathak</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#intro">Introduction</a>
+    <a href="#editing">Video Editing</a>
+    <a href="#animations">Animations</a>
+    <a href="#motion-graphics">Motion Graphics</a>
+    <a href="#ads">Advertisements</a>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </nav>
+</header>
 
-    <!-- Introduction -->
-    <section id="intro" class="video-category">
-      <h2>👋 Introduction</h2>
-      <div class="video-card" style="max-width:800px; margin:0 auto;">
-        <div class="video-wrapper">
-          <iframe src="https://drive.google.com/file/d/1IY1zf4qoTsEWJ61LwJbQ3YICRotJIGO8/preview" width="640" height="480" allow="autoplay"></iframe>
-        </div>
-        <div class="video-info" style="text-align:center;">
-          <h3>About Me</h3>
-          <p>My journey and work in editing, animation, and media.</p>
-        </div>
+<main>
+  <h1>🎬 Video Showcase</h1>
+
+  <!-- Introduction -->
+  <section id="intro" class="video-category">
+    <h2>👋 Introduction</h2>
+    <div class="video-card" style="max-width:800px;margin:0 auto;">
+      <div class="video-wrapper">
+        <iframe src="https://drive.google.com/file/d/1IY1zf4qoTsEWJ61LwJbQ3YICRotJIGO8/preview" allow="autoplay"></iframe>
       </div>
-    </section>
-
-    <!-- Video Editing -->
-    <section id="editing" class="video-category">
-      <h2>✂️ Video Editing</h2>
-      <div class="video-grid">
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1E9Yuf_GNaNLaHo3NnI-8Pw69pvQb61rY/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-          </div>
-          <div class="video-info">
-            <h3>Typography</h3>
-            <p>Fast-paced edit showcasing cinematic transitions.</p>
-          </div>
-        </div>
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/158FtrcfLFIbEkBQo6z-r7uTLUHmzYgT4/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-          </div>
-          <div class="video-info">
-            <h3>Client Edits</h3>
-            <p>Dynamic event coverage with storytelling cuts.</p>
-          </div>
-        </div>
+      <div class="video-info" style="text-align:center;">
+        <h3>About Me</h3>
+        <p>My journey and work in editing, animation, and media.</p>
       </div>
-    </section>
-
-    <!-- Animations -->
-    <section id="animations" class="video-category">
-      <h2>✨ Animations</h2>
-      <div class="video-grid">
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1-rTaF1TA6bcaUonKNIZc-GNVcxWUk903/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-          </div>
-          <div class="video-info">
-            <h3>Animation Trailer</h3>
-            <p>A smooth animated intro for branding projects.</p>
-          </div>
-        </div>
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1r6ROV4iI1D8V1JNFeGj_nHzvXmNpVh1z/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-          </div>
-          <div class="video-info">
-            <h3>2D Animation</h3>
-            <p>Creative 2D storytelling animation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Advertisements -->
-    <section id="ads" class="video-category">
-      <h2>📢 Advertisements</h2>
-      <div class="video-grid">
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1V1fZ67NIRpyCj5qJP8fIAe2piqVByndx/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-          </div>
-          <div class="video-info">
-            <h3>Product Ad</h3>
-            <p>Advertisement showcasing a product with motion graphics.</p>
-          </div>
-        </div>
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/171-3uHr3eNmEz3Q4kZev4cDU44rWBeyi/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-          </div>
-          <div class="video-info">
-            <h3>Social Media Ad</h3>
-            <p>Short ad optimized for Instagram and YouTube.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div style="text-align:center;">
-      <a href="index.html" class="back-btn">⬅ Back to Portfolio</a>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <p>© 2025 Deep Pathak | Video Showcase</p>
-  </footer>
+  <!-- Video Editing -->
+  <section id="editing" class="video-category">
+    <h2>✂️ Video Editing</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/1E9Yuf_GNaNLaHo3NnI-8Pw69pvQb61rY/preview" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Typography Edit</h3>
+          <p>Fast-paced typography-based cinematic edit.</p>
+        </div>
+      </div>
 
-  <script>
-    // Theme toggle
-    const toggleButton = document.querySelector('.theme-toggle');
-    const body = document.body;
-    toggleButton.addEventListener('click', () => {
-      const currentTheme = body.getAttribute('data-theme');
-      body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-      toggleButton.innerHTML = `<i class="fas fa-${currentTheme === 'dark' ? 'sun' : 'moon'}"></i>`;
-    });
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/158FtrcfLFIbEkBQo6z-r7uTLUHmzYgT4/preview" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Client Project</h3>
+          <p>Professional client-focused storytelling edit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    // Pause other iframes when one starts (limited support for Drive)
-    const iframes = document.querySelectorAll("iframe");
-    window.addEventListener("message", (event) => {
-      if (typeof event.data === "string" && event.data.includes("playing")) {
-        iframes.forEach((frame) => {
-          if (frame.contentWindow !== event.source) {
-            frame.contentWindow.postMessage('pause', '*');
-          }
-        });
-        const card = [...iframes].find(f => f.contentWindow === event.source)?.closest('.video-card');
-        if (card) card.classList.add("playing");
-      }
-      if (typeof event.data === "string" && event.data.includes("paused")) {
-        const card = [...iframes].find(f => f.contentWindow === event.source)?.closest('.video-card');
-        if (card) card.classList.remove("playing");
-      }
-    });
-  </script>
+  <!-- Animations -->
+  <section id="animations" class="video-category">
+    <h2>✨ Animations</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/1-rTaF1TA6bcaUonKNIZc-GNVcxWUk903/preview" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Animated Trailer</h3>
+          <p>High-quality animation for branding and intros.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/1r6ROV4iI1D8V1JNFeGj_nHzvXmNpVh1z/preview" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>2D Animation</h3>
+          <p>Creative 2D storytelling animation project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motion Graphics -->
+  <section id="motion-graphics" class="video-category">
+    <h2>🎞 Motion Graphics</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/1nmxJgkLTS4CaGpkkI04axNC59-bxwl85/preview" width="640" height="480"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Brand Motion Reel</h3>
+          <p>Clean motion graphics designed for modern branding.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/YOUR_FILE_ID_2/preview" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Explainer Graphics</h3>
+          <p>Informative motion graphics for explainer videos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advertisements -->
+  <section id="ads" class="video-category">
+    <h2>📢 Advertisements</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/1V1fZ67NIRpyCj5qJP8fIAe2piqVByndx/preview" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Product Advertisement</h3>
+          <p>Motion-driven commercial product showcase.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://drive.google.com/file/d/171-3uHr3eNmEz3Q4kZev4cDU44rWBeyi/preview" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Social Media Ad</h3>
+          <p>Short-form ad optimized for social platforms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="text-align:center;">
+    <a href="index.html" class="back-btn">⬅ Back to Portfolio</a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 Deep Pathak | Video Showcase</p>
+</footer>
+
+<script>
+  const toggleButton = document.querySelector('.theme-toggle');
+  const body = document.body;
+
+  toggleButton.addEventListener('click', () => {
+    const theme = body.getAttribute('data-theme');
+    body.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
+    toggleButton.innerHTML =
+      `<i class="fas fa-${theme === 'dark' ? 'sun' : 'moon'}"></i>`;
+  });
+</script>
+
 </body>
 </html>
