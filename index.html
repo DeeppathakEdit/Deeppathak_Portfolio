@@ -24,7 +24,11 @@
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Inter', 'Segoe UI', sans-serif;
@@ -86,18 +90,34 @@
       cursor: pointer;
       transition: var(--transition);
     }
-    .theme-toggle:hover { color: var(--accent); transform: scale(1.1); }
+
+    .theme-toggle:hover {
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 5rem 5%;
+    }
 
     .hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 5rem 5%;
       gap: 2rem;
       flex-wrap: wrap;
     }
-    .hero-text h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
-    .hero-text p { color: #aaa; max-width: 500px; }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      color: #aaa;
+      max-width: 500px;
+    }
 
     .hero-img {
       width: 200px;
@@ -107,36 +127,55 @@
       box-shadow: var(--shadow);
       overflow: hidden;
     }
+
     .hero-img img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 50%;
     }
 
-    section { padding: 5rem 5%; }
+    .about {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
 
-    .about { display: flex; gap: 2rem; flex-wrap: wrap; }
     .about-img {
-      width: 300px; height: 300px;
+      width: 300px;
+      height: 300px;
       background: var(--card-bg);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .about-img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 4px; /* nudged down by 4px */
-    }
-    .about-text { flex: 1; min-width: 300px; }
 
-    .skills-grid, .projects-grid {
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 4px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .skills-grid,
+    .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
 
-    .skill-card, .project-card {
+    .skill-card,
+    .project-card {
       background: var(--card-bg);
       padding: 2rem;
       border-radius: 10px;
@@ -144,7 +183,9 @@
       transition: var(--transition);
       box-shadow: var(--shadow);
     }
-    .skill-card:hover, .project-card:hover {
+
+    .skill-card:hover,
+    .project-card:hover {
       border-color: var(--accent);
       transform: translateY(-5px);
     }
@@ -153,40 +194,36 @@
       color: var(--accent);
       text-decoration: none;
       font-size: 1.1rem;
-      position: relative;
     }
-    .project-card a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0; height: 1px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-    .project-card a:hover::after { width: 100%; }
-    .project-card a:hover { text-decoration: underline; }
 
-    .contact { text-align: center; }
+    .contact {
+      text-align: center;
+    }
+
     .contact-icons {
-      display: flex; justify-content: center;
-      gap: 2rem; margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
     }
+
     .contact-icons a {
-      color: var(--fg); font-size: 2rem; transition: var(--transition);
+      color: var(--fg);
+      font-size: 2rem;
+      transition: var(--transition);
     }
+
     .contact-icons a:hover {
       color: var(--accent);
       transform: translateY(-5px) scale(1.1);
     }
 
-    h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
-
     .animate-on-scroll {
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
+
     .animate-on-scroll.animated {
       opacity: 1;
       transform: translateY(0);
@@ -199,106 +236,126 @@
     }
   </style>
 </head>
+
 <body data-theme="dark">
-  <header>
-    <a href="#" class="logo">Deep Pathak</a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="videos.html">Videos</a>
-      <a href="#contact">Contact</a>
-      <button class="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
-    </nav>
-  </header>
 
-  <section id="home" class="hero">
-    <div class="hero-text animate-on-scroll">
-      <h1>Welcome to my portfolio</h1>
-      <p>Editing long and short videos with everything in between.</p>
-    </div>
-    <div class="hero-img animate-on-scroll">
-      <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/logologo.webp" alt="Deep Pathak Profile" />
-    </div>
-  </section>
+<header>
+  <a href="#" class="logo">Deep Pathak</a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="videos.html">Videos</a>
+    <a href="#contact">Contact</a>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+  </nav>
+</header>
 
-  <section id="about" class="about">
-    <div class="about-img animate-on-scroll">
-      <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/deeppathak.jpg" alt="About Deep Pathak" />
-    </div>
-    <div class="about-text animate-on-scroll">
-      <h2>About Me</h2>
-      <p>Hi, I’m Deep Pathak—a video editor passionate about crafting engaging stories through motion. I specialize in both long-form documentaries and quick, dynamic social clips.</p>
-    </div>
-  </section>
+<section id="home" class="hero">
+  <div class="hero-text animate-on-scroll">
+    <h1>Welcome to my portfolio</h1>
+    <p>Editing long and short videos with everything in between.</p>
+  </div>
+  <div class="hero-img animate-on-scroll">
+    <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/logologo.webp" alt="Deep Pathak Profile">
+  </div>
+</section>
 
-  <section id="skills">
-    <h2 class="animate-on-scroll">Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card animate-on-scroll">
-        <h3>Video Editing</h3>
-        <p>Expert in Editing with Adobe Tools.<br>Costs: NRP.800-1500 Per Min</p>
-      </div>
-      <div class="skill-card animate-on-scroll">
-        <h3>Motion Graphics</h3>
-        <p>Creating dynamic titles and lower thirds in After Effects.<br>Costs: NRP.800-1000 Per Min</p>
-      </div>
-      <div class="skill-card animate-on-scroll">
-        <h3>2D Animation</h3>
-        <p>High Quality 2D Animation in Krita Software.<br>Costs:NRP.2000-3000 Per Min</p>
-      </div>
-    </div>
-  </section>
+<section id="about" class="about">
+  <div class="about-img animate-on-scroll">
+    <img src="https://raw.githubusercontent.com/DeeppathakEdit/Deeppathak_Portfolio/main/images/deeppathak.jpg" alt="About Deep Pathak">
+  </div>
+  <div class="about-text animate-on-scroll">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m Deep Pathak—a video editor passionate about crafting engaging stories through motion.
+      I specialize in both long-form documentaries and quick, dynamic social clips.
+    </p>
+  </div>
+</section>
 
-  <section id="projects">
-    <h2 class="animate-on-scroll">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card animate-on-scroll">
-        <a href="https://www.instagram.com/yo_deeppathak/" target="_blank">Instagram Account</a>
-        <p>A curated reel showcasing more edits and animations.</p>
-      </div>
-      <div class="project-card animate-on-scroll">
-        <a href="https://www.youtube.com/@heliod7806" target="_blank">YouTube Account</a>
-        <p>Fast-paced edits tailored for Instagram and YouTube Shorts.</p>
-      </div>
-      <div class="project-card animate-on-scroll">
-        <a href="https://discord.gg/K8AbZMdm" target="_blank">Discord Server</a>
-        <p>Join the discord to get in touch.</p>
-      </div>
+<section id="skills">
+  <h2 class="animate-on-scroll">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card animate-on-scroll">
+      <h3>Video Editing</h3>
+      <p>Adobe Premiere Pro & After Effects<br>Cost: NPR 800–1500 / min</p>
     </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2 class="animate-on-scroll">Get in Touch</h2>
-    <div class="contact-icons animate-on-scroll">
-      <a href="https://x.com/heloidboy" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://www.linkedin.com/in/deep-pathak-652176305/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://www.instagram.com/yo_deeppathak/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <div class="skill-card animate-on-scroll">
+      <h3>Motion Graphics</h3>
+      <p>Titles, lower thirds & transitions<br>Cost: NPR 800–1000 / min</p>
     </div>
-  </section>
+    <div class="skill-card animate-on-scroll">
+      <h3>2D Animation</h3>
+      <p>Krita-based animation<br>Cost: NPR 2000–3000 / min</p>
+    </div>
+  </div>
+</section>
 
-  <script>
-    const toggleButton = document.querySelector('.theme-toggle');
-    const body = document.body;
-    toggleButton.addEventListener('click', () => {
-      const currentTheme = body.getAttribute('data-theme');
-      body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
-      toggleButton.innerHTML = `<i class="fas fa-${currentTheme === 'dark' ? 'sun' : 'moon'}"></i>`;
+<section id="projects">
+  <h2 class="animate-on-scroll">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card animate-on-scroll">
+      <a href="https://www.instagram.com/yo_deeppathak/" target="_blank">Instagram Account</a>
+      <p>Reels and creative short-form edits.</p>
+    </div>
+    <div class="project-card animate-on-scroll">
+      <a href="https://www.youtube.com/@heliod7806" target="_blank">YouTube Channel</a>
+      <p>Fast-paced edits and storytelling content.</p>
+    </div>
+    <div class="project-card animate-on-scroll">
+      <a href="https://discord.gg/K8AbZMdm" target="_blank">Discord Server</a>
+      <p>Community and direct contact.</p>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <h2 class="animate-on-scroll">View Videos</h2>
+  <div class="projects-grid">
+    <div class="project-card animate-on-scroll" style="text-align:center;">
+      <p>Watch my full video portfolio including edits, animations, and reels.</p>
+      <a href="videos.html" style="font-size:1.25rem; display:inline-block; margin-top:1rem;">
+        Go to Videos Page →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="animate-on-scroll">Get in Touch</h2>
+  <div class="contact-icons animate-on-scroll">
+    <a href="https://x.com/heloidboy" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/deep-pathak-652176305/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/yo_deeppathak/" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+</section>
+
+<script>
+  const toggleButton = document.querySelector('.theme-toggle');
+  const body = document.body;
+
+  toggleButton.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    toggleButton.innerHTML = `<i class="fas fa-${currentTheme === 'dark' ? 'sun' : 'moon'}"></i>`;
+  });
+
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.1 });
 
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animated');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    elements.forEach(el => observer.observe(el));
-  </script>
+  elements.forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
