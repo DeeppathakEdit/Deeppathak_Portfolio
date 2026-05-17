@@ -1,0 +1,190 @@
+<!-- animations.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Animations | Deep Pathak</title>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+
+    :root{
+      --bg:#1a1a1a;
+      --fg:#e8e8e8;
+      --card:#262626;
+      --border:#3d3d3d;
+      --accent:#00aaff;
+      --muted:#aaaaaa;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--fg);
+      font-family:Inter,sans-serif;
+    }
+
+    header{
+      padding:1.2rem 5%;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      color:var(--fg);
+      text-decoration:none;
+      font-size:1.4rem;
+      font-weight:700;
+    }
+
+    .back-btn{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .hero{
+      text-align:center;
+      padding:5rem 5% 3rem;
+    }
+
+    .hero h1{
+      font-size:3rem;
+      margin-bottom:1rem;
+    }
+
+    .hero p{
+      color:var(--muted);
+      max-width:700px;
+      margin:auto;
+    }
+
+    .video-grid{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:2rem;
+      padding-bottom:5rem;
+    }
+
+    .video-card{
+      background:var(--card);
+      border-radius:18px;
+      border:1px solid var(--border);
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .video-card:hover{
+      transform:translateY(-8px);
+      border-color:var(--accent);
+    }
+
+    .video-wrapper{
+      position:relative;
+      padding-top:56.25%;
+    }
+
+    iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:none;
+    }
+
+    .video-info{
+      padding:1.5rem;
+    }
+
+    .video-info h3{
+      color:var(--accent);
+      margin-bottom:0.6rem;
+    }
+
+    .video-info p{
+      color:var(--muted);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">Deep Pathak</a>
+
+  <a href="index.html" class="back-btn">
+    <i class="fas fa-arrow-left"></i> Back
+  </a>
+</header>
+
+<section class="hero">
+
+  <h1>Animations</h1>
+
+  <p>
+    Creative animation projects combining storytelling,
+    motion design, and visual creativity.
+  </p>
+
+</section>
+
+<section class="video-grid">
+
+  <div class="video-card">
+
+    <div class="video-wrapper">
+      <iframe
+      src="https://drive.google.com/file/d/1-rTaF1TA6bcaUonKNIZc-GNVcxWUk903/preview">
+      </iframe>
+    </div>
+
+    <div class="video-info">
+      <h3>Animated Trailer</h3>
+
+      <p>
+        High-quality animated trailer project focused
+        on branding and visual impact.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="video-card">
+
+    <div class="video-wrapper">
+      <iframe
+      src="https://drive.google.com/file/d/17vaGZPG_Eb8x4a7-8GkvXkLepC4Yyb6r/preview">
+      </iframe>
+    </div>
+
+    <div class="video-info">
+      <h3>2D Animation</h3>
+
+      <p>
+        Creative storytelling animation with smooth
+        motion and engaging visuals.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
