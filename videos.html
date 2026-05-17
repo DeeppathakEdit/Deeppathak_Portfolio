@@ -2,331 +2,558 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deep Pathak - Video Showcase</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deep Pathak | Video Portfolio</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
   <style>
     :root {
       --bg: #1a1a1a;
-      --fg: #e0e0e0;
+      --fg: #e8e8e8;
       --accent: #00aaff;
-      --card-bg: #2a2a2a;
-      --border: #444;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --card: #262626;
+      --border: #3a3a3a;
+      --muted: #b0b0b0;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
       --transition: all 0.3s ease;
     }
 
     [data-theme="light"] {
-      --bg: #f5f5f5;
-      --fg: #333;
-      --card-bg: #ffffff;
-      --border: #cccccc;
-      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --bg: #f4f4f4;
+      --fg: #222;
+      --card: #ffffff;
+      --border: #d8d8d8;
+      --muted: #666;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
     }
 
-    body {
+    body{
       font-family: "Inter", sans-serif;
       background: var(--bg);
       color: var(--fg);
       transition: var(--transition);
+      line-height: 1.6;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 5%;
-      background: var(--bg);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    header{
+      width:100%;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter: blur(14px);
+      background: rgba(26,26,26,0.85);
+      border-bottom:1px solid var(--border);
     }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--fg);
-      text-decoration: none;
+    .navbar{
+      width:90%;
+      max-width:1300px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:1rem 0;
     }
 
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: var(--fg);
-      transition: var(--transition);
+    .logo{
+      font-size:1.6rem;
+      font-weight:700;
+      text-decoration:none;
+      color:var(--fg);
+      letter-spacing:1px;
     }
 
-    nav a:hover {
-      color: var(--accent);
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:1.5rem;
     }
 
-    .theme-toggle {
-      background: none;
-      border: none;
-      color: var(--fg);
-      font-size: 1.3rem;
-      cursor: pointer;
-      margin-left: 1rem;
+    .nav-links a{
+      text-decoration:none;
+      color:var(--fg);
+      font-size:0.95rem;
+      transition:var(--transition);
     }
 
-    h1, h2 {
-      text-align: center;
-      margin: 2rem 0 1rem;
+    .nav-links a:hover{
+      color:var(--accent);
     }
 
-    section {
-      padding: 3rem 5%;
+    .theme-toggle{
+      background:none;
+      border:none;
+      color:var(--fg);
+      font-size:1.1rem;
+      cursor:pointer;
     }
 
-    .video-category {
-      margin-bottom: 3rem;
+    .hero{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:5rem 5%;
     }
 
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+    .hero-container{
+      width:100%;
+      max-width:1250px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:4rem;
+      align-items:center;
     }
 
-    .video-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+    .hero-text h1{
+      font-size:4rem;
+      line-height:1.1;
+      margin-bottom:1rem;
     }
 
-    .video-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--accent);
+    .hero-text span{
+      color:var(--accent);
     }
 
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      background: #000;
+    .hero-text p{
+      color:var(--muted);
+      font-size:1.05rem;
+      margin-bottom:2rem;
+      max-width:550px;
     }
 
-    .video-wrapper iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 12px 12px 0 0;
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:1rem;
     }
 
-    .video-info {
-      padding: 1rem;
+    .btn{
+      padding:0.9rem 1.6rem;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      transition:var(--transition);
+      border:1px solid transparent;
     }
 
-    .video-info h3 {
-      margin-bottom: 0.5rem;
-      color: var(--accent);
+    .btn-primary{
+      background:var(--accent);
+      color:white;
     }
 
-    .video-info p {
-      font-size: 0.9rem;
-      color: #aaaaaa;
+    .btn-primary:hover{
+      transform:translateY(-3px);
+      background:#0093dd;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem 5%;
-      border-top: 1px solid var(--border);
-      margin-top: 3rem;
+    .btn-secondary{
+      border:1px solid var(--border);
+      color:var(--fg);
+      background:transparent;
     }
 
-    .back-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--accent);
-      color: #ffffff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: var(--transition);
+    .btn-secondary:hover{
+      border-color:var(--accent);
+      color:var(--accent);
     }
 
-    .back-btn:hover {
-      background: #0088cc;
+    .intro-video{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .video-wrapper{
+      position:relative;
+      width:100%;
+      padding-top:56.25%;
+      background:#000;
+    }
+
+    .video-wrapper iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:none;
+    }
+
+    .intro-info{
+      padding:1.5rem;
+    }
+
+    .intro-info h3{
+      margin-bottom:0.5rem;
+      color:var(--accent);
+      font-size:1.3rem;
+    }
+
+    .intro-info p{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .works{
+      padding:5rem 5%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:3rem;
+    }
+
+    .section-title h2{
+      font-size:2.5rem;
+      margin-bottom:0.5rem;
+    }
+
+    .section-title p{
+      color:var(--muted);
+    }
+
+    .work-grid{
+      max-width:1250px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:1.5rem;
+    }
+
+    .work-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:2rem;
+      transition:var(--transition);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .work-card:hover{
+      transform:translateY(-8px);
+      border-color:var(--accent);
+      box-shadow:var(--shadow);
+    }
+
+    .work-icon{
+      width:60px;
+      height:60px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:14px;
+      background:rgba(0,170,255,0.12);
+      color:var(--accent);
+      font-size:1.4rem;
+      margin-bottom:1.5rem;
+    }
+
+    .work-card h3{
+      margin-bottom:0.7rem;
+      font-size:1.2rem;
+    }
+
+    .work-card p{
+      color:var(--muted);
+      font-size:0.95rem;
+      margin-bottom:1.5rem;
+    }
+
+    .work-link{
+      text-decoration:none;
+      color:var(--accent);
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+    }
+
+    footer{
+      border-top:1px solid var(--border);
+      padding:2rem 5%;
+      text-align:center;
+      color:var(--muted);
+      margin-top:3rem;
+    }
+
+    @media(max-width:950px){
+
+      .hero-container{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text{
+        text-align:center;
+      }
+
+      .hero-text p{
+        margin:auto auto 2rem;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+
+      .hero-text h1{
+        font-size:3rem;
+      }
+    }
+
+    @media(max-width:650px){
+
+      .navbar{
+        flex-direction:column;
+        gap:1rem;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero-text h1{
+        font-size:2.4rem;
+      }
+
+      .section-title h2{
+        font-size:2rem;
+      }
     }
   </style>
 </head>
 
 <body data-theme="dark">
 
-<header>
-  <a href="index.html" class="logo">Deep Pathak</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="#intro">Introduction</a>
-    <a href="#editing">Video Editing</a>
-    <a href="#animations">Animations</a>
-    <a href="#motion-graphics">Motion Graphics</a>
-    <a href="#ads">Advertisements</a>
-    <a href="#vfx">VFX</a>
-    <button class="theme-toggle" aria-label="Toggle theme">
-      <i class="fas fa-moon"></i>
-    </button>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="navbar">
+      <a href="#" class="logo">Deep Pathak</a>
 
-<main>
-  <h1>🎬 Video Showcase</h1>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#works">Works</a>
+        <a href="#contact">Contact</a>
 
-  <!-- Introduction -->
-  <section id="intro" class="video-category">
-    <h2>👋 Introduction</h2>
-    <div class="video-card" style="max-width:800px;margin:0 auto;">
-      <div class="video-wrapper">
-        <iframe src="https://drive.google.com/file/d/1IY1zf4qoTsEWJ61LwJbQ3YICRotJIGO8/preview" allow="autoplay"></iframe>
-      </div>
-      <div class="video-info" style="text-align:center;">
-        <h3>About Me</h3>
-        <p>My journey and work in editing, animation, and media.</p>
+        <button class="theme-toggle" aria-label="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Video Editing -->
-  <section id="editing" class="video-category">
-    <h2>✂️ Video Editing</h2>
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="video-wrapper">
-          <iframe src="https://drive.google.com/file/d/1E9Yuf_GNaNLaHo3NnI-8Pw69pvQb61rY/preview"></iframe>
-        </div>
-        <div class="video-info">
-          <h3>Typography Edit</h3>
-          <p>Fast-paced typography-based cinematic edit.</p>
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-container">
+
+      <!-- LEFT -->
+      <div class="hero-text">
+        <h1>
+          Creative Video Editor <br>
+          & <span>Motion Designer</span>
+        </h1>
+
+        <p>
+          I create cinematic edits, motion graphics, animations,
+          VFX, and commercial visuals focused on storytelling,
+          branding, and high-quality visual experiences.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#works" class="btn btn-primary">
+            View My Works
+          </a>
+
+          <a href="contact.html" class="btn btn-secondary">
+            Contact Me
+          </a>
         </div>
       </div>
 
-      <div class="video-card">
+      <!-- RIGHT -->
+      <div class="intro-video">
+
         <div class="video-wrapper">
-          <iframe src="https://drive.google.com/file/d/1ziBLejBAKLkGqVUyrXMrnrGp7MtvF6zA/preview"></iframe>
+          <iframe
+            src="https://drive.google.com/file/d/1IY1zf4qoTsEWJ61LwJbQ3YICRotJIGO8/preview"
+            allow="autoplay">
+          </iframe>
         </div>
-        <div class="video-info">
-          <h3>Client / Music Project</h3>
-          <p>Professional client-focused storytelling edit.</p>
+
+        <div class="intro-info">
+          <h3>Introduction</h3>
+          <p>
+            A quick introduction to my journey, creative process,
+            and professional work in editing, animation, and media.
+          </p>
         </div>
+
       </div>
+
     </div>
+
   </section>
 
-  <!-- Animations -->
-  <section id="animations" class="video-category">
-    <h2>✨ Animations</h2>
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="video-wrapper">
-          <iframe src="https://drive.google.com/file/d/1-rTaF1TA6bcaUonKNIZc-GNVcxWUk903/preview"></iframe>
-        </div>
-        <div class="video-info">
-          <h3>Animated Trailer</h3>
-          <p>High-quality animation for branding and intros.</p>
-        </div>
-      </div>
+  <!-- WORK CATEGORIES -->
+  <section class="works" id="works">
 
-      <div class="video-card">
-        <div class="video-wrapper">
-          <iframe src="https://drive.google.com/file/d/17vaGZPG_Eb8x4a7-8GkvXkLepC4Yyb6r/preview"></iframe>
-        </div>
-        <div class="video-info">
-          <h3>2D Animation</h3>
-          <p>Creative 2D storytelling animation project.</p>
-        </div>
-      </div>
+    <div class="section-title">
+      <h2>Explore My Works</h2>
+      <p>
+        Choose a category below to view dedicated project showcases.
+      </p>
     </div>
-  </section>
 
-  <!-- Motion Graphics -->
-  <section id="motion-graphics" class="video-category">
-    <h2>🎞 Motion Graphics</h2>
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="video-wrapper">
-          <iframe src="https://drive.google.com/file/d/1DH24_71rxKrgyAguOuHyhTjXxd0IeGni/preview"></iframe>
+    <div class="work-grid">
+
+      <!-- TYPOGRAPHY -->
+      <div class="work-card">
+        <div class="work-icon">
+          <i class="fas fa-font"></i>
         </div>
-        <div class="video-info">
-          <h3>Brand Motion Reel</h3>
-          <p>Clean motion graphics designed for modern branding.</p>
-        </div>
+
+        <h3>Typography Edits</h3>
+
+        <p>
+          Cinematic typography-based edits with dynamic pacing,
+          transitions, and storytelling.
+        </p>
+
+        <a href="typography.html" class="work-link">
+          View Projects <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
+
+      <!-- ANIMATION -->
+      <div class="work-card">
+        <div class="work-icon">
+          <i class="fas fa-wand-magic-sparkles"></i>
+        </div>
+
+        <h3>Animations</h3>
+
+        <p>
+          2D and creative animated projects crafted for branding,
+          storytelling, and engaging visuals.
+        </p>
+
+        <a href="animations.html" class="work-link">
+          View Projects <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- MOTION -->
+      <div class="work-card">
+        <div class="work-icon">
+          <i class="fas fa-film"></i>
+        </div>
+
+        <h3>Motion Graphics</h3>
+
+        <p>
+          Professional motion design and branded visual content
+          tailored for modern media.
+        </p>
+
+        <a href="motion-graphics.html" class="work-link">
+          View Projects <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- ADS -->
+      <div class="work-card">
+        <div class="work-icon">
+          <i class="fas fa-bullhorn"></i>
+        </div>
+
+        <h3>Advertisements</h3>
+
+        <p>
+          Commercial ads and social media promotional videos
+          optimized for audience engagement.
+        </p>
+
+        <a href="ads.html" class="work-link">
+          View Projects <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- VFX -->
+      <div class="work-card">
+        <div class="work-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+
+        <h3>VFX Showcase</h3>
+
+        <p>
+          Visual effects, compositing, cinematic enhancement,
+          and advanced post-production work.
+        </p>
+
+        <a href="vfx.html" class="work-link">
+          View Projects <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- CLIENT WORK -->
+      <div class="work-card">
+        <div class="work-icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+
+        <h3>Client Projects</h3>
+
+        <p>
+          Professional client collaborations focused on quality,
+          branding, and creative storytelling.
+        </p>
+
+        <a href="clients.html" class="work-link">
+          View Projects <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
     </div>
+
   </section>
 
-  <!-- Advertisements -->
-  <section id="ads" class="video-category">
-    <h2>📢 Advertisements</h2>
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="video-wrapper">
-          <iframe src="https://drive.google.com/file/d/1V1fZ67NIRpyCj5qJP8fIAe2piqVByndx/preview"></iframe>
-        </div>
-        <div class="video-info">
-          <h3>Product Advertisement</h3>
-          <p>Motion-driven commercial product showcase.</p>
-        </div>
-      </div>
+  <!-- FOOTER -->
+  <footer id="contact">
+    <p>© 2025 Deep Pathak • Video Portfolio</p>
+  </footer>
 
-      <div class="video-card">
-        <div class="video-wrapper">
-          <iframe src="https://drive.google.com/file/d/171-3uHr3eNmEz3Q4kZev4cDU44rWBeyi/preview"></iframe>
-        </div>
-        <div class="video-info">
-          <h3>Social Media Ad</h3>
-          <p>Short-form ad optimized for social platforms.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- THEME SCRIPT -->
+  <script>
+    const toggleButton = document.querySelector(".theme-toggle");
+    const body = document.body;
 
-  <!-- VFX -->
-  <section id="vfx" class="video-category">
-    <h2>💥 VFX</h2>
-    <div class="video-card" style="max-width:900px;margin:0 auto;">
-      <div class="video-wrapper">
-        <iframe src="https://drive.google.com/file/d/1snVRuhS9XGU0_aqNbr-wdr-C27f4Rmsx/preview"></iframe>
-      </div>
-      <div class="video-info" style="text-align:center;">
-        <h3>Visual Effects Showcase</h3>
-        <p>Compositing, effects, and cinematic VFX work.</p>
-      </div>
-    </div>
-  </section>
+    toggleButton.addEventListener("click", () => {
+      const currentTheme = body.getAttribute("data-theme");
 
-  <div style="text-align:center;">
-    <a href="index.html" class="back-btn">⬅ Back to Portfolio</a>
-  </div>
-</main>
+      body.setAttribute(
+        "data-theme",
+        currentTheme === "dark" ? "light" : "dark"
+      );
 
-<footer>
-  <p>© 2025 Deep Pathak | Video Showcase</p>
-</footer>
-
-<script>
-  const toggleButton = document.querySelector('.theme-toggle');
-  const body = document.body;
-
-  toggleButton.addEventListener('click', () => {
-    const theme = body.getAttribute('data-theme');
-    body.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
-    toggleButton.innerHTML =
-      `<i class="fas fa-${theme === 'dark' ? 'sun' : 'moon'}"></i>`;
-  });
-</script>
+      toggleButton.innerHTML =
+        currentTheme === "dark"
+          ? '<i class="fas fa-sun"></i>'
+          : '<i class="fas fa-moon"></i>';
+    });
+  </script>
 
 </body>
 </html>
